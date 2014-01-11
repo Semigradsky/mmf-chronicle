@@ -1,0 +1,526 @@
+$text-color: #f00;
+$text-color-2: #fff;
+$main-color-1: #000;
+$main-color-2: #fff;
+
+$body-width: 10px;
+$body-height: 30px;
+$head-width: 20px;
+$arm-width: 8px;
+$arm-height: 20px;
+$leg-width: 10px;
+$leg-limb-width: 10px;
+$leg-height: 20px;
+$leg-limb-height: 25px;
+
+$man-animation-speed: 0.75s;
+$sum-animation-speed: 2s;
+$moon-animation-speed: 700s;
+
+@mixin transform($x) {
+    -webkit-transform: $x;
+    -ms-transform: $x;
+    -o-transform: $x;
+    -moz-transform: $x;
+    transform: $x;
+}
+
+@mixin transform-origin($x) {
+    -ms-transform-origin: $x;
+    -webkit-transform-origin: $x;
+    -o-transform-origin: $x;
+    -moz-transform-origin: $x;
+    transform-origin: $x;
+}
+
+@mixin animation($x) {
+    -ms-animation: $x;
+    -webkit-animation: $x;
+    -o-animation: $x;
+    -moz-animation: $x;
+    animation: $x;
+}
+
+@mixin keyframes($x) {
+    @keyframes $x {
+        @content;
+    }
+    @-webkit-keyframes $x {
+        @content;
+    }
+    @-moz-keyframes $x {
+        @content;
+    }
+}
+
+body {
+    background: $main-color-1;
+    color: $text-color;
+    font-size: 18px;
+
+    a {
+        color: lighten($text-color, 10%);
+        &:hover {
+            color: $main-color-2;
+        }
+    }
+
+    header {
+        font-size: 2em;
+    }
+
+    header,
+    footer {
+        text-align: center;
+        margin: 10px;
+    }
+
+    section {
+        left: 0;
+        right: 0;
+
+        > div {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+    }
+
+    .gist {
+        font-size: 14px;
+        .gist-file {
+            margin: 0 !important;
+            .gist-data.gist-syntax {
+                height: 400px;
+                overflow: auto;
+            }
+        }
+    }
+
+    h1, h2,  h3 {
+        text-align: center;
+    }
+}
+
+#Ribbon {
+    text-indent: -9999px;
+    background: rgba(0, 0, 0, 0) url('../img/ribbon.png');
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    height: 149px;
+    width: 149px;
+    z-index: 1;
+}
+
+#Page1 {
+    h1 {
+        margin-top: 20%;
+        font-size: 50px;
+    }
+
+    h2 {
+        color: $text-color-2;
+        font-size: 70px;
+        margin-top: 5%;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 10px;
+        box-shadow: 0 0 60px #FFF;
+        margin-top: 10%;
+    }
+}
+
+#Page2 {
+    h1 {
+        font-size: 40px;
+        margin: 20% 0 10%;
+    }
+    ul {
+        padding-left: 20px;
+        li {
+            margin: 5px 0;
+            margin-bottom: 14px;
+        }
+    }
+    strong {
+        color: $text-color-2;
+    }
+}
+
+#Page3 {
+    h1 {
+        font-size: 40px;
+        margin-top: 15%;
+    }
+    p {
+        font-size: 20px;
+        text-align: center;
+        margin-top: 10%;
+        margin-bottom: 5px;
+        color: $text-color-2;
+    }
+    h2 {
+        font-size: 25px;
+        margin-top: 5%;
+    }
+}
+
+#Page4 {
+    h1 {
+        font-size: 40px;
+        margin-top: 15%;
+    }
+    p {
+        text-align: center;
+        color: $text-color-2;
+        margin: 5% 0 10px;
+        font-size: 28px;
+    }
+}
+
+#Page5 {
+    h1 {
+        font-size: 40px;
+        margin-top: 10%;
+    }
+    p {
+        color: $text-color-2;
+        text-align: center;
+        margin: 5% auto 10px;
+        max-width: 600px;
+
+        a {
+            color: $text-color;
+        }
+    }
+}
+
+#PageLast {
+    h1 {
+        font-size: 40px;
+        margin-top: 10%;
+    }
+    p {
+        text-align: center;
+        color: $text-color-2;
+        margin: 5% 0 10px;
+        font-size: 20px;
+    }
+    img {
+        width: 100%;
+        max-width: 640px;
+        display: block;
+        margin: 0 auto;
+        border-radius: 10px;
+        box-shadow: 0 0 20px #FFF;
+    }
+    a {
+        display: block;
+        color: $text-color-2;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+@media (max-height:800px) {
+    #Page1 {
+        h1 {
+            margin-top: 10%;
+        }
+    }
+    #Page2 {
+        h1 {
+            margin-top: 10%;
+        }
+    }
+    #Page3 {
+        h1 {
+            margin-top: 5%;
+        }
+    }
+    #Page4 {
+        h1 {
+            margin-top: 10%;
+        }
+    }
+    #Page5 {
+        h1 {
+            margin-top: 5%;
+        }
+    }
+    #PageLast {
+        h1 {
+            font-size: 40px;
+            margin-top: 5%;
+        }
+    }
+}
+
+@media (max-height:735px) {
+    #Page3 {
+        p {
+            margin-top: 5%;
+        }
+    }
+    #Page4 {
+        p {
+            margin-top: 3%;
+        }
+    }
+    #Page5 {
+        p {
+            margin-top: 3%;
+        }
+    }
+    #PageLast {
+        img {
+            max-width: 595px;
+        }
+    }
+}
+
+@media (max-height:685px) {
+    #Page1 {
+        img {
+            margin-top: 5%;
+        }
+    }
+    #Page2 {
+        h1 {
+            margin-bottom: 5%;
+            margin-top: 7%;
+        }
+    }
+    #Page3 {
+        h1 {
+            margin-top: 3%;
+        }
+        p {
+            margin-top: 3%;
+        }
+        h2 {
+            margin-top: 3%;
+        }
+    }
+    #Page4 {
+        h1 {
+            margin-top: 5%;
+        }
+    }
+    body .gist .gist-file .gist-data.gist-syntax {
+        max-height: 300px;
+    }
+    #PageLast {
+        p {
+            margin-top: 3%;
+        }
+        img {
+            max-width: 530px;
+        }
+    }
+}
+
+
+#world {
+    border: 5px groove $main-color-2;
+    height: 400px;
+    overflow: hidden;
+
+    .road {
+        position: relative;
+        border-bottom: 1px solid $main-color-2;
+        width: 100%;
+        height: 100px;
+        margin-top: 20%;
+    }
+
+    .sum {
+        font-size: 70px;
+        position: absolute;
+        left: 30%;
+        top: -60%;
+        @include animation(sum $sum-animation-speed infinite);
+    }
+
+    .moon {
+        display: block;
+        position: absolute;
+        top: -115%;
+        right: 5px;
+        z-index: -1;
+        @include animation(moon $moon-animation-speed);
+    }
+}
+
+.man {
+    position: absolute;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+
+    .body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: 60px - $body-height - $leg-height - $leg-limb-height;
+        margin-left: -$body-width/2;
+        background: $main-color-2;
+        border-radius: $body-width;
+        width: $body-width;
+        height: $body-height;
+
+        .head {
+            position: absolute;
+            top: -($head-width - 2px);
+            left: -($head-width/2 - $body-width/2);
+            width: $head-width;
+            height: $head-width;
+            background: $main-color-2;
+            border-radius: 100%;
+        }
+
+        .arm {
+            position: absolute;
+            top: 0px;
+            left: $body-width*0.2;
+            width: $arm-width;
+            height: $arm-height;
+            background: $main-color-2;
+            border-radius: $arm-width;
+            @include transform(rotate(-45deg));
+            @include transform-origin(4px 4px);
+
+            .limb {
+                position: absolute;
+                top: $arm-height - 5px;
+                left: 0px;
+                width: $arm-width;
+                height: $arm-height;
+                background: $main-color-2;
+                border-radius: $arm-width;
+                @include transform(rotate(-90deg));
+                @include transform-origin(4px 4px);
+            }
+
+            &.arm-left {
+                @include animation(leftArm $man-animation-speed infinite);
+                .limb {
+                    @include animation(leftArmLimb $man-animation-speed infinite);
+                }
+            }
+
+            &.arm-right {
+                @include animation(rightArm $man-animation-speed infinite);
+                .limb {
+                    @include animation(rightArmLimb $man-animation-speed infinite);
+                }
+            }
+        }
+
+        .leg {
+            position: absolute;
+            top: $body-height - $body-width/2;
+            left: 0px;
+            width: $leg-width;
+            height: $leg-height;
+            background: $main-color-2;
+            border-radius: $leg-width;
+            @include transform(rotate(-90deg));
+            @include transform-origin(5px 5px);
+
+            .limb {
+                position: absolute;
+                top: $leg-height - 5px;
+                left: 0px;
+                width: $leg-limb-width;
+                height: $leg-limb-height;
+                background: $main-color-2;
+                border-radius: $leg-limb-width $leg-limb-width 0px 0px;
+                @include transform(rotate(90deg));
+                @include transform-origin(5px 5px);
+            }
+
+            &.leg-left {
+                @include animation(leftLeg $man-animation-speed infinite);
+                .limb {
+                    @include animation(leftLegLimb $man-animation-speed infinite);
+                }
+            }
+
+            &.leg-right {
+                @include animation(rightLeg $man-animation-speed infinite);
+                .limb {
+                    @include animation(rightLegLimb $man-animation-speed infinite);
+                }
+            }
+        }
+    }
+}
+
+@include keyframes(sum) {
+    0%   { left: 30%; top: -60px; @include transform(rotate(45deg)); }
+    25%  { left: 35%; top: -80px; @include transform(rotate(45deg)); }
+    50%  { left: 40%; top: -60px; }
+    75%  { left: 35%; top: -40px; @include transform(rotate(-45deg)); }
+    100% { left: 30%; top: -60px; @include transform(rotate(45deg)); }
+}
+
+@include keyframes(moon) {
+    0%   { right: 5px; }
+    100% { right: 5000px; }
+}
+
+@include keyframes(leftLeg) {
+    0%   { @include transform(rotate(45deg));  }
+    50%  { @include transform(rotate(-90deg)); }
+    100% { @include transform(rotate(45deg));  }
+}
+
+@include keyframes(leftLegLimb) {
+    0% {   @include transform(rotate(90deg)); }
+    75% {  @include transform(rotate(25deg)); }
+    100% { @include transform(rotate(90deg)); }
+}
+
+@include keyframes(rightLeg) {
+    0%   { @include transform(rotate(-90deg)); }
+    50%  { @include transform(rotate(45deg));  }
+    100% { @include transform(rotate(-90deg)); }
+}
+
+@include keyframes(rightLegLimb) {
+    0%   { @include transform(rotate(25deg)); }
+    75%  { @include transform(rotate(90deg)); }
+    100% { @include transform(rotate(25deg)); }
+}
+
+@include keyframes(leftArm) {
+    0%   { @include transform(rotate(90deg));  }
+    50%  { @include transform(rotate(-65deg)); }
+    100% { @include transform(rotate(90deg));  }
+}
+
+@include keyframes(leftArmLimb) {
+    0%   { @include transform(rotate(-45deg)); }
+    75%  { @include transform(rotate(-90deg)); }
+    100% { @include transform(rotate(-45deg)); }
+}
+
+@include keyframes(rightArm) {
+    0%   { @include transform(rotate(-65deg)); }
+    50%  { @include transform(rotate(90deg));  }
+    100% { @include transform(rotate(-65deg)); }
+}
+
+@include keyframes(rightArmLimb) {
+    0%   { @include transform(rotate(-90deg)); }
+    75%  { @include transform(rotate(-45deg)); }
+    100% { @include transform(rotate(-90deg)); }
+}
+
